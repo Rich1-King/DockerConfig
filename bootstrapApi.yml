@@ -1,0 +1,19 @@
+ spring:
+    application:
+         name: 程序名
+    cloud:
+       config:
+         profile:
+             ** #（调用的环境）
+         label: master # optional
+         uri: http://ip(**):${config.port:**}
+ eureka:
+  instance:
+    non-secure-port: ${server.port:**}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:***:${eureka.port:**}/eureka/
+server:
+  port: **
+
+

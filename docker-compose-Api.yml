@@ -1,0 +1,17 @@
+
+    容器名:
+        container_name: 容器名
+        restart: always
+        image: mail:v0.0.1(镜像名和版本)
+        hostname: ***
+        net: bridge
+        ports:
+           - "10001:10001"
+        command:
+           - "--spring.cloud.config.profile=**"
+           - "--spring.cloud.config.uri=http://******"
+           - "--eureka.instance.hostname=****"
+           - "--eureka.client.serviceUrl.defaultZone=http://***:***(eureka服务的ip和端口)/eureka/"
+           - "--server.port=10001"
+        expose:
+           - "10001"

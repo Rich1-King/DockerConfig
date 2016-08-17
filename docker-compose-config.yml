@@ -1,0 +1,16 @@
+容器名:
+    container_name: 容器名
+    restart: always
+    image: configserver:v1.0.0（容器镜像名：版本号）
+    net: bridge
+    hostname: **
+    ports:
+        - "10002:10002"
+    command:
+        - "--server.port=10002"
+        - "--spring.cloud.config.server.git.uri=****git路径"
+        - "--eureka.instance.non-secure-port=10002"
+        - "--eureka.instance.hostname=**"
+        - "--eureka.client.service-url.defaultZone=http://****(eureka服务的ip和端口)/eureka/"
+    expose:
+        - "10002"

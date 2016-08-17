@@ -1,0 +1,14 @@
+version: '2'
+services:
+    容器名:
+        restart: always
+        container_name: 容器名
+        image: eurekaserver:v1.0.0（镜像名：版本号）
+        ports:
+           - "*:*"
+        hostname: ***
+        command:
+           - "--server.port=8761"
+           - "--eureka.client.serviceUrl.defaultZone=http://****(eureka服务的ip和端口)/eureka/"
+        expose:
+           - "*" ##暴露端口

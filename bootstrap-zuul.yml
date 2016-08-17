@@ -1,0 +1,26 @@
+ spring:
+    application:
+         name: **
+ eureka:
+  instance:
+    non-secure-port: ${server.port:**}
+  client:
+    service-url:
+      defaultZone: http://${eureka.host:ip**}:${eureka.port:**}/eureka/
+ server:
+    port: **
+ zuul:
+  routes:
+    users:
+      path: /***/***/**(过滤路径)
+      serviceId: **
+ hystrix:
+   command:
+     default:
+       execution:
+         isolation:
+           thread:
+             timeoutInMilliseconds: 6000
+ ribbon:
+    ConnectTimeout: 6000
+    ReadTimeout: 6000

@@ -1,0 +1,15 @@
+
+    容器名:
+        container_name: 容器名
+        restart: always
+        image: zuul:v1.0.0
+        hostname: **
+        net: host
+        command:
+           - "--server.port=**"
+           - "--eureka.client.serviceUrl.defaultZone=http://**:**/eureka/"
+           - "--eureka.instance.hostname=***"
+           - "--zuul.routes.users.path=/***/***/**"
+           - "--zuul.routes.users.serviceId=***"
+        expose:
+           - "**"
