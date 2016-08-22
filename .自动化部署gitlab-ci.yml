@@ -1,0 +1,23 @@
+stages:
+  - docker_build_image      
+production_job:
+    tags:
+       - docker_build_image
+    script:
+        - host=**
+        - user=root
+        - project=dev
+        - version=v0.0.1
+        #- profile=-Pwuxi
+        - v=`sed -n 's/.*>\(.*\)<\/version>/\1/p' $1 pom.xml`
+        - arr=(${v//,/ })
+        - echo ${arr[0]}
+        - git checkout ${arr[0]}
+        - git branch
+        - echo "---------------------------------------execute-build-image----------------------------------------"
+        - mvn clean package -Dmaven.test.skip=true
+        - cd target
+        - mv *.jar ROOT.jar
+        - ansible ${host} -m copy -a "src=./ROOT.jar dest=~/build_images/" -u ${user}
+        - ansible ${host} -m shell -a "cd ~/build_images && bash ~/build_images/build.sh ${project} ${version} ROOT.jar" -u ${user}
+    stage: docker_build_image
