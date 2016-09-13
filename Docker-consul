@@ -1,0 +1,12 @@
+server:
+  port: ****
+spring:
+  application:
+    name: ***
+  cloud:
+    consul:
+       host: ***
+       port: **
+       discovery:
+            healthCheckInterval: 15s
+            instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
