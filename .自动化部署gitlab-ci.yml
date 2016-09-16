@@ -8,7 +8,7 @@ production_job:
         - user=root
         - project=dev
         - version=v0.0.1
-        #- profile=-Pwuxi
+        #- profile=环境配置文件,例如(-P文件名)
         - v=`sed -n 's/.*>\(.*\)<\/version>/\1/p' $1 pom.xml`
         - arr=(${v//,/ })
         - echo ${arr[0]}
