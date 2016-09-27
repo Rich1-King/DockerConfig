@@ -12,7 +12,7 @@
  zuul:
   routes:
     users:
-      path: /***/***/**(过滤路径)
+      path: /***/***/[**(过滤路径)]
       serviceId: **
  hystrix:
    command:
